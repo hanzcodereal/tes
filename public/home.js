@@ -66,14 +66,15 @@ const Home = {
             s = gid('home-scroll');
         if (!g || !s) return;
         
-        const firstBatch = S.ht.slice(0, 12);
+        const firstBatch = S.ht.slice(0, 25);
         g.innerHTML = firstBatch.map(function(t, i) {
-            return '<div onclick="PK(\'home1\',' + i + ')" class="bg-[#181818] hover:bg-[#282828] rounded-xl flex items-center gap-3 p-2 cursor-pointer active:scale-95 transition-colors" style="animation-delay:' + (i * 30) + 'ms"><img src="' + getHDImage(t.cover) + '" class="w-14 h-14 rounded-lg object-cover shadow-lg" onerror="this.src=\'' + FI + '\'" /><span class="font-bold text-sm line-clamp-2">' + es(t.title) + '</span></div>';
+            return '<div onclick="PK(\'home1\',' + i + ')" class="bg-[#181818] hover:bg-[#282828] rounded-xl flex items-center gap-3 p-2 cursor-pointer active:scale-95 transition-colors" style="animation-delay:' + (i * 20) + 'ms"><img src="' + getHDImage(t.cover) + '" class="w-14 h-14 rounded-lg object-cover shadow-lg" onerror="this.src=\'' + FI + '\'" /><span class="font-bold text-sm line-clamp-2">' + es(t.title) + '</span></div>';
         }).join('');
         
-        const secondBatch = S.ht.slice(12, 24);
+        const secondBatch = S.ht.slice(25, 50);
         s.innerHTML = secondBatch.map(function(t, i) {
-            return '<div onclick="PK(\'home2\',' + i + ')" class="flex-shrink-0 w-40 cursor-pointer active:scale-95" style="animation-delay:' + ((i + 12) * 30) + 'ms"><div class="w-40 h-40 mb-2 relative"><img src="' + getHDImage(t.cover) + '" class="w-full h-full object-cover rounded-xl shadow-lg" onerror="this.src=\'' + FI + '\'" /><div class="absolute bottom-2 right-2 bg-[#1ed760] text-black rounded-full p-3 opacity-0 hover:opacity-100 transition-all"><i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i></div></div><h3 class="font-semibold text-sm truncate">' + es(t.title) + '</h3><p class="text-[#6b7280] text-xs truncate mt-1">' + es(t.artist) + '</p></div>';
+            const idx = i + 25;
+            return '<div onclick="PK(\'home2\',' + i + ')" class="flex-shrink-0 w-40 cursor-pointer active:scale-95" style="animation-delay:' + ((i + 25) * 20) + 'ms"><div class="w-40 h-40 mb-2 relative"><img src="' + getHDImage(t.cover) + '" class="w-full h-full object-cover rounded-xl shadow-lg" onerror="this.src=\'' + FI + '\'" /><div class="absolute bottom-2 right-2 bg-[#1ed760] text-black rounded-full p-3 opacity-0 hover:opacity-100 transition-all"><i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i></div></div><h3 class="font-semibold text-sm truncate">' + es(t.title) + '</h3><p class="text-[#6b7280] text-xs truncate mt-1">' + es(t.artist) + '</p></div>';
         }).join('');
         
         lucide.createIcons();
