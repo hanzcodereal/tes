@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#121212">
+    <title>HanzMusify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { -webkit-tap-highlight-color: transparent; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+        .fill-current { fill: currentColor; }
+        .filter-tab.active { background: white !important; color: black !important; }
+        .nav-blur { background: rgba(18,18,18,0.97); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border-top: 1px solid rgba(255,255,255,0.08); }
+        .artist-photo { width:120px; height:120px; border-radius:50%; object-fit:cover; border:4px solid white; box-shadow:0 10px 40px rgba(0,0,0,0.5); background:white; }
+        @keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
+        .animate-slide-up{animation:slideUp 0.3s ease-out forwards}
+        .btn-saweria { background: #1ed760; color: black; font-weight: 700; padding: 12px 24px; border-radius: 50px; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.2s ease; border: none; cursor: pointer; width: 100%; }
+        .btn-saweria:hover { background: #1fdf64; transform: scale(1.02); }
+        .btn-saweria:active { transform: scale(0.95); }
+        .btn-saweria i { width: 20px; height: 20px; }
+        .lyric-line { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: left center; border-left: 3px solid transparent; border-radius: 4px; }
+        .lyric-line.active-lyric { color: #ffffff !important; font-size: 1.15rem !important; font-weight: 800 !important; opacity: 1 !important; border-left-color: #1ed760 !important; padding-left: 12px !important; text-shadow: 0 0 15px rgba(30,215,96,0.15); background: rgba(30,215,96,0.03); }
+    </style>
+</head>
+<body class="h-[100dvh] w-full bg-[#121212] text-white font-sans overflow-hidden flex flex-col">
+
+    <div class="flex-1 overflow-y-auto pb-28 hide-scrollbar" id="main-area">
+        <div id="view-home"></div>
+        <div id="view-search" style="display:none;"></div>
+        <div id="view-library" style="display:none;"></div>
+        <div id="view-dev" style="display:none;"></div>
+    </div>
+
+    <div id="nav-container"></div>
+    <div id="mini-container"></div>
+    <div id="full-container"></div>
+    <div id="lyrics-container"></div>
+    <div id="artist-container"></div>
+    <div id="yt-player" style="position:absolute;top:-9999px;left:-9999px;width:1px;height:1px;"></div>
+    <audio id="audio-player" preload="auto" style="display:none;"></audio>
+
+    <script src="player.js"></script>
+    <script src="home.js"></script>
+    <script src="search.js"></script>
+    <script src="miniplayer.js"></script>
+    <script src="fullplayer.js"></script>
+    <script src="artist.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
